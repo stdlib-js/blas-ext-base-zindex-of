@@ -45,14 +45,32 @@ limitations under the License.
 
 <!-- Package usage documentation. -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/blas-ext-base-zindex-of
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import zindexOf from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-zindex-of@esm/index.mjs';
+var zindexOf = require( '@stdlib/blas-ext-base-zindex-of' );
 ```
 
 #### zindexOf( N, searchElement, x, strideX )
@@ -60,8 +78,8 @@ import zindexOf from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-zindex
 Returns the first index of a specified search element in a double-precision complex floating-point strided array.
 
 ```javascript
-import Complex128Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-complex128@esm/index.mjs';
-import Complex128 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64-ctor@esm/index.mjs';
+var Complex128Array = require( '@stdlib/array-complex128' );
+var Complex128 = require( '@stdlib/complex-float64-ctor' );
 
 var x = new Complex128Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 ] );
 
@@ -79,8 +97,8 @@ The function has the following parameters:
 If the function is unable to find a search element, the function returns `-1`.
 
 ```javascript
-import Complex128Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-complex128@esm/index.mjs';
-import Complex128 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64-ctor@esm/index.mjs';
+var Complex128Array = require( '@stdlib/array-complex128' );
+var Complex128 = require( '@stdlib/complex-float64-ctor' );
 
 var x = new Complex128Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 ] );
 
@@ -91,8 +109,8 @@ var idx = zindexOf( x.length, new Complex128( 7.0, 8.0 ), x, 1 );
 The `N` and stride parameters determine which elements in the strided array are accessed at runtime. For example, to search every other element:
 
 ```javascript
-import Complex128Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-complex128@esm/index.mjs';
-import Complex128 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64-ctor@esm/index.mjs';
+var Complex128Array = require( '@stdlib/array-complex128' );
+var Complex128 = require( '@stdlib/complex-float64-ctor' );
 
 var x = new Complex128Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 ] );
 
@@ -103,8 +121,8 @@ var idx = zindexOf( 2, new Complex128( 5.0, 6.0 ), x, 2 );
 Note that indexing is relative to the first index. To introduce an offset, use [`typed array`][mdn-typed-array] views.
 
 ```javascript
-import Complex128Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-complex128@esm/index.mjs';
-import Complex128 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64-ctor@esm/index.mjs';
+var Complex128Array = require( '@stdlib/array-complex128' );
+var Complex128 = require( '@stdlib/complex-float64-ctor' );
 
 // Initial array...
 var x0 = new Complex128Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 ] );
@@ -122,8 +140,8 @@ var idx = zindexOf( 3, new Complex128( 7.0, 8.0 ), x1, 1 );
 Returns the first index of a specified search element in a double-precision complex floating-point strided array using alternative indexing semantics.
 
 ```javascript
-import Complex128Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-complex128@esm/index.mjs';
-import Complex128 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64-ctor@esm/index.mjs';
+var Complex128Array = require( '@stdlib/array-complex128' );
+var Complex128 = require( '@stdlib/complex-float64-ctor' );
 
 var x = new Complex128Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 ] );
 
@@ -138,8 +156,8 @@ The function has the following additional parameters:
 While [`typed array`][mdn-typed-array] views mandate a view offset based on the underlying buffer, the offset parameter supports indexing semantics based on a starting index. For example, to access only the last three elements of the strided array
 
 ```javascript
-import Complex128Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-complex128@esm/index.mjs';
-import Complex128 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64-ctor@esm/index.mjs';
+var Complex128Array = require( '@stdlib/array-complex128' );
+var Complex128 = require( '@stdlib/complex-float64-ctor' );
 
 var x = new Complex128Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 ] );
 
@@ -171,16 +189,11 @@ var idx = zindexOf.ndarray( 3, new Complex128( 5.0, 6.0 ), x, 1, x.length-3 );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="module">
-
-import uniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-uniform@esm/index.mjs';
-import Complex128Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-complex128@esm/index.mjs';
-import Complex128 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64-ctor@esm/index.mjs';
-import zindexOf from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-zindex-of@esm/index.mjs';
+```javascript
+var uniform = require( '@stdlib/random-array-uniform' );
+var Complex128Array = require( '@stdlib/array-complex128' );
+var Complex128 = require( '@stdlib/complex-float64-ctor' );
+var zindexOf = require( '@stdlib/blas-ext-base-zindex-of' );
 
 var buf = uniform( 10*2, -10, 10, {
     'dtype': 'float64'
@@ -190,10 +203,6 @@ console.log( x );
 
 var idx = zindexOf( x.length, new Complex128( 5.0, 5.0 ), x, 1 );
 console.log( idx );
-
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -202,7 +211,132 @@ console.log( idx );
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+#include "stdlib/blas/ext/base/zindex_of.h"
+```
+
+#### stdlib_strided_zindex_of( N, searchElement, \*X, strideX )
+
+Returns the first index of a specified search element in a double-precision complex floating-point strided array.
+
+```c
+#include "stdlib/complex/float64/ctor.h"
+
+const double x[] = { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 };
+const stdlib_complex128_t searchElement = stdlib_complex128( 3.0, 4.0 );
+
+int idx = stdlib_strided_zindex_of( 3, searchElement, (const stdlib_complex128_t *)x, 1 );
+// returns 1
+```
+
+The function accepts the following arguments:
+
+-   **N**: `[in] CBLAS_INT` number of indexed elements.
+-   **searchElement**: `[in] stdlib_complex128_t` search element.
+-   **X**: `[in] stdlib_complex128_t*` input array.
+-   **strideX**: `[in] CBLAS_INT` stride length.
+
+```c
+CBLAS_INT stdlib_strided_zindex_of( const CBLAS_INT N, const stdlib_complex128_t searchElement, const stdlib_complex128_t *X, const CBLAS_INT strideX );
+```
+
+#### stdlib_strided_zindex_of_ndarray( N, searchElement, \*X, strideX, offsetX )
+
+Returns the first index of a specified search element in a double-precision complex floating-point strided array using alternative indexing semantics.
+
+```c
+#include "stdlib/complex/float64/ctor.h"
+
+const double x[] = { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 };
+const stdlib_complex128_t searchElement = stdlib_complex128( 3.0, 4.0 );
+
+int idx = stdlib_strided_zindex_of_ndarray( 3, searchElement, (const stdlib_complex128_t *)x, 1, 0 );
+// returns 1
+```
+
+The function accepts the following arguments:
+
+-   **N**: `[in] CBLAS_INT` number of indexed elements.
+-   **searchElement**: `[in] stdlib_complex128_t` search element.
+-   **X**: `[in] stdlib_complex128_t*` input array.
+-   **strideX**: `[in] CBLAS_INT` stride length.
+-   **offsetX**: `[in] CBLAS_INT` starting index.
+
+```c
+CBLAS_INT stdlib_strided_zindex_of_ndarray( const CBLAS_INT N, const stdlib_complex128_t searchElement, const stdlib_complex128_t *X, const CBLAS_INT strideX, const CBLAS_INT offsetX );
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+#include "stdlib/blas/ext/base/zindex_of.h"
+#include "stdlib/complex/float64/ctor.h"
+#include <stdio.h>
+
+int main( void ) {
+    // Create a strided array (interleaved real and imaginary components):
+    const double x[] = { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 };
+
+    // Specify the number of indexed elements:
+    const int N = 4;
+
+    // Specify a stride:
+    const int strideX = 1;
+
+    // Specify a search element:
+    const stdlib_complex128_t searchElement = stdlib_complex128( 5.0, 6.0 );
+
+    // Perform a search:
+    int idx = stdlib_strided_zindex_of( N, searchElement, (const stdlib_complex128_t *)x, strideX );
+
+    // Print the result:
+    printf( "index value: %d\n", idx );
+}
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 <!-- Section to include cited references. If references are included, add a horizontal rule *before* the section. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
 
@@ -229,7 +363,7 @@ console.log( idx );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -292,9 +426,9 @@ Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/blas-ext-base-zindex-of/main/LICENSE
 
-[@stdlib/array/complex128]: https://github.com/stdlib-js/array-complex128/tree/esm
+[@stdlib/array/complex128]: https://github.com/stdlib-js/array-complex128
 
-[@stdlib/complex/float64/ctor]: https://github.com/stdlib-js/complex-float64-ctor/tree/esm
+[@stdlib/complex/float64/ctor]: https://github.com/stdlib-js/complex-float64-ctor
 
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
