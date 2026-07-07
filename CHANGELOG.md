@@ -22,6 +22,7 @@
 
 <details>
 
+-   [`547176e`](https://github.com/stdlib-js/stdlib/commit/547176ec139fa4257ee56a3be0597255049fbc12) - **test:** fix grammar in test descriptions _(by Athan Reines)_
 -   [`9c31305`](https://github.com/stdlib-js/stdlib/commit/9c31305739ee5411d758efbe4ac7de92ae3e939b) - **test:** fix grammar in test descriptions _(by Athan Reines)_
 -   [`7fb79ff`](https://github.com/stdlib-js/stdlib/commit/7fb79ff35cfcb8311ec4ca24ece274f7c6bdb4d8) - **feat:** add `blas/ext/base/zindex-of` [(#11800)](https://github.com/stdlib-js/stdlib/pull/11800) _(by Muhammad Haris)_
 
